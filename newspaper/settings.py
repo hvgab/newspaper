@@ -10,6 +10,7 @@ __copyright__ = 'Copyright 2014, Lucas Ou-Yang'
 
 import logging
 import os
+import tempfile
 
 from http.cookiejar import CookieJar as cj
 
@@ -32,7 +33,8 @@ NLP_STOPWORDS_EN = os.path.join(
 DATA_DIRECTORY = '.newspaper_scraper'
 
 # TOP_DIRECTORY = os.path.join(os.path.expanduser("~"), DATA_DIRECTORY)
-TOP_DIRECTORY = os.path.join('tmp', DATA_DIRECTORY)
+tempdir = tempfile.gettempdir()
+TOP_DIRECTORY = os.path.join(tempdir, DATA_DIRECTORY)
 if not os.path.exists(TOP_DIRECTORY):
     os.mkdir(TOP_DIRECTORY)
 
