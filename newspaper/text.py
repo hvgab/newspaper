@@ -125,6 +125,10 @@ class StopWordsArabic(StopWords):
         return content
 
     def candidate_words(self, stripped_input):
+        import imp
+        import sys
+        sys.modules["sqlite"] = imp.new_module("sqlite")
+        sys.modules["sqlite3.dbapi2"] = imp.new_module("sqlite.dbapi2")
         import nltk
         s = nltk.stem.isri.ISRIStemmer()
         words = []

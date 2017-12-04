@@ -20,11 +20,11 @@ ideal = 20.0
 stopwords = set()
 
 def load_stopwords(language):
-    """ 
+    """
     Loads language-specific stopwords for keyword selection
     """
     global stopwords
-    
+
     # stopwords for nlp in English are not the regular stopwords
     # to pass the tests
     # can be changed with the tests
@@ -35,8 +35,8 @@ def load_stopwords(language):
                                   'stopwords-{}.txt'.format(language))
     with open(stopwordsFile, 'r', encoding='utf-8') as f:
         stopwords.update(set([w.strip() for w in f.readlines()]))
-        
-        
+
+
 def summarize(url='', title='', text='', max_sents=5):
     if not text or not title or max_sents <= 0:
         return []
@@ -153,6 +153,10 @@ def keywords(text):
 def split_sentences(text):
     """Split a large string into sentences
     """
+    import imp
+    import sys
+    sys.modules["sqlite"] = imp.new_module("sqlite")
+    sys.modules["sqlite3.dbapi2"] = imp.new_module("sqlite.dbapi2")
     import nltk.data
     tokenizer = nltk.data.load('tokenizers/punkt/english.pickle')
 

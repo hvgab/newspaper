@@ -3,6 +3,10 @@
 Downloads the necessary NLTK models and corpora required to support
 all of newspaper's features. Modify for your own needs.
 """
+import imp
+import sys
+sys.modules["sqlite"] = imp.new_module("sqlite")
+sys.modules["sqlite3.dbapi2"] = imp.new_module("sqlite.dbapi2")
 import nltk
 
 REQUIRED_CORPORA = [
