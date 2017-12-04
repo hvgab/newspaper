@@ -130,6 +130,7 @@ class StopWordsArabic(StopWords):
         sys.modules["sqlite"] = imp.new_module("sqlite")
         sys.modules["sqlite3.dbapi2"] = imp.new_module("sqlite.dbapi2")
         import nltk
+        nltk.data.path.append("/var/task/nltk_data")
         s = nltk.stem.isri.ISRIStemmer()
         words = []
         for word in nltk.tokenize.wordpunct_tokenize(stripped_input):

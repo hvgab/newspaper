@@ -158,6 +158,7 @@ def split_sentences(text):
     sys.modules["sqlite"] = imp.new_module("sqlite")
     sys.modules["sqlite3.dbapi2"] = imp.new_module("sqlite.dbapi2")
     import nltk.data
+    nltk.data.path.append("/var/task/nltk_data")
     tokenizer = nltk.data.load('tokenizers/punkt/english.pickle')
 
     sentences = tokenizer.tokenize(text)

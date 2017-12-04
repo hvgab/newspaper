@@ -18,11 +18,13 @@ REQUIRED_CORPORA = [
     'stopwords'
 ]
 
+
 def main():
     for each in REQUIRED_CORPORA:
         print(('Downloading "{0}"'.format(each)))
         nltk.download(each)
     print("Finished.")
+
 
 if __name__ == '__main__':
     main()
